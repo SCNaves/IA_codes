@@ -27,7 +27,7 @@ def cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities):
             print("As cidades visitadas pelo caminho foram: ")
             # Como o vetor 'cities_visited' pode não conter todos os campos compostos por cidade, será retirado apenas os indíces
             # que que possuem strings como forma
-            for i, city in enumerate(cities_visited):   #Comando enumerate retorna a posição e a palavra contida no vetor nesta posição. Ex: '0' 'Goiana'
+            for i, city in enumerate(cities_visited):   #Comando enumerate retorna a posição e a palavra contida no vetor nesta posição. Ex: '0' 'Goiania'
                 if isinstance(city,str):    #Caso a palavra seja de formato string, printar na tela
                     print(city)
             break
@@ -63,9 +63,6 @@ def cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities):
 
 # Criando um vetor da quantidade de cidades a serem utilizados no código
 qtde_cities = 12
-
-# Vetor para conter cidades ja visitadas (possui um tamanho inicial do n° de cidades existentes)
-visited_cities = [[] for i in range(qtde_cities)] # Vetor vazio do tamanho do vetor "qtde_cities"
 
 # Criando uma lista para conter todos os nós e seus respectivos vizinhos juntamente ao valor de custo
 """
