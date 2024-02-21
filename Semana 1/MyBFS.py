@@ -27,7 +27,7 @@ def cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities):
             print("As cidades visitadas pelo caminho foram: ")
             # Como o vetor 'cities_visited' pode não conter todos os campos compostos por cidade, será retirado apenas os indíces
             # que que possuem strings como forma
-            for i, city in enumerate(cities_visited):   #Comando enumerate retorna a posição e a palavra contida no vetor nesta posição. Ex: '0' 'Goiana'
+            for i, city in enumerate(cities_visited):   #Comando enumerate retorna a posição e a palavra contida no vetor nesta posição. Ex: '0' 'Goiania'
                 if isinstance(city,str):    #Caso a palavra seja de formato string, printar na tela
                     print(city)
             break
@@ -55,9 +55,6 @@ def cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities):
 # Criando um variavel da quantidade de cidades a serem utilizados no código
 qtde_cities = 12
 
-# Vetor para conter cidades ja visitadas (possui um tamanho inicial do n° de cidades existentes)
-visited_cities = [[] for i in range(qtde_cities)] # Vetor vazio do tamanho do vetor "qtde_cities"
-
 # Criando uma lista para conter todos os nós e seus respectivos vizinhos juntamente ao valor de custo
 """
 Exemplo: Lista_de_nos = {
@@ -68,16 +65,16 @@ Exemplo: Lista_de_nos = {
 List_of_nodes = {
     'Sao Paulo': [('Campinas',1),('Rio de Janeiro',3),('Curitiba',4),('Joinville',5),('Belo Horizonte',9)],
     'Campinas': [('Sao Paulo',1),('Curitiba',5),('Belo Horizonte',8),('Uberlandia',12)],
-    'Uberlandia': [('Belo Horizonte',5),('Goiana',7),('Brasilia',9),('Campinas',12),('Curitiba',18)],
-    'Goiana': [('Brasilia',2),('Uberlandia',7),('Florianopolis',20)],
-    'Brasilia': [('Goiana',2),('Uberlandia',9),('Salvador',20)],
+    'Uberlandia': [('Belo Horizonte',5),('Goiania',7),('Brasilia',9),('Campinas',12),('Curitiba',18)],
+    'Goiania': [('Brasilia',2),('Uberlandia',7),('Florianopolis',20)],
+    'Brasilia': [('Goiania',2),('Uberlandia',9),('Salvador',20)],
     'Salvador': [('Ilheus',4),('Belo Horizonte',16),('Brasilia',20)],
     'Ilheus': [('Salvador',4),('Rio de Janeiro',6),('Belo Horizonte',10)],
     'Belo Horizonte': [('Uberlandia',5),('Rio de Janeiro',7),('Campinas',8),('Sao Paulo',9),('Ilheus',10),('Salvador',16)],
     'Rio de Janeiro': [('Sao Paulo',3),('Ilheus',6),('Belo Horizonte',7),('Joinville',15)],
     'Joinville': [('Curitiba',2),('Sao Paulo',5),('Florianopolis',5),('Rio de Janeiro',15)],
     'Curitiba': [('Joinville',2),('Florianopolis',4),('Sao Paulo',4),('Campinas',5),('Uberlandia',18)],
-    'Florianopolis': [('Curitiba',4),('Joinville',5),('Goiana',20)]
+    'Florianopolis': [('Curitiba',4),('Joinville',5),('Goiania',20)]
 } 
 
 #PLOT GRAFOS
