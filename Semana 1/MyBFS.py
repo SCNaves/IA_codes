@@ -77,16 +77,16 @@ Exemplo: Lista_de_nos = {
 List_of_nodes = {
     'Sao Paulo': [('Campinas',1),('Rio de Janeiro',3),('Curitiba',4),('Joinville',5),('Belo Horizonte',9)],
     'Campinas': [('Sao Paulo',1),('Curitiba',5),('Belo Horizonte',8),('Uberlandia',12)],
-    'Uberlandia': [('Belo Horizonte',5),('Goiana',7),('Brasilia',9),('Campinas',12),('Curitiba',18)],
-    'Goiana': [('Brasilia',2),('Uberlandia',7),('Florianopolis',20)],
-    'Brasilia': [('Goiana',2),('Uberlandia',9),('Salvador',20)],
+    'Uberlandia': [('Belo Horizonte',5),('Goiania',7),('Brasilia',9),('Campinas',12),('Curitiba',18)],
+    'Goiania': [('Brasilia',2),('Uberlandia',7),('Florianopolis',20)],
+    'Brasilia': [('Goiania',2),('Uberlandia',9),('Salvador',20)],
     'Salvador': [('Ilheus',4),('Belo Horizonte',16),('Brasilia',20)],
     'Ilheus': [('Salvador',4),('Rio de Janeiro',6),('Belo Horizonte',10)],
     'Belo Horizonte': [('Uberlandia',5),('Rio de Janeiro',7),('Campinas',8),('Sao Paulo',9),('Ilheus',10),('Salvador',16)],
     'Rio de Janeiro': [('Sao Paulo',3),('Ilheus',6),('Belo Horizonte',7),('Joinville',15)],
     'Joinville': [('Curitiba',2),('Sao Paulo',5),('Florianopolis',5),('Rio de Janeiro',15)],
     'Curitiba': [('Joinville',2),('Florianopolis',4),('Sao Paulo',4),('Campinas',5),('Uberlandia',18)],
-    'Florianopolis': [('Curitiba',4),('Joinville',5),('Goiana',20)]
+    'Florianopolis': [('Curitiba',4),('Joinville',5),('Goiania',20)]
 } 
 
 #PLOT GRAFOS
