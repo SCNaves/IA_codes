@@ -50,7 +50,8 @@ def cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities):
         cities_visited[i] = actual_city
 
         # Atualiza o valor da variável
-        i = i + 1 
+        i = i + 1
+    return cities_visited
 
 # Criando um variavel da quantidade de cidades a serem utilizados no código
 qtde_cities = 12
@@ -100,7 +101,7 @@ initial_city = input()
 print("Digite a cidade de destino: ")
 destiny_city = input()
 
-cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities)
+cidades_visitadas = cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities)
 
 nodeList = []
 
