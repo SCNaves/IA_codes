@@ -101,3 +101,14 @@ print("Digite a cidade de destino: ")
 destiny_city = input()
 
 cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities)
+
+nodeList = []
+
+for city in List_of_nodes.keys():   # 'keys()' é utilizada para retirar as primeiras cidades associadas ao dicionário em 'List_of_nodes'
+    if(city in cidades_visitadas):
+        nodeList.append('red')
+    else:
+        nodeList.append('lightgray')
+
+nx.draw(G, with_labels=True, node_color=nodeList)
+plt.show()
