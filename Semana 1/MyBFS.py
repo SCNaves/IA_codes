@@ -54,7 +54,7 @@ def cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities):
     return cities_visited
 
 # Criando um variavel da quantidade de cidades a serem utilizados no código
-qtde_cities = 12
+qtde_cities = 20
 
 # Criando uma lista para conter todos os nós e seus respectivos vizinhos juntamente ao valor de custo
 """
@@ -64,19 +64,20 @@ Exemplo: Lista_de_nos = {
 """
 
 List_of_nodes = {
-    'Sao Paulo': [('Campinas',1),('Rio de Janeiro',3),('Curitiba',4),('Joinville',5),('Belo Horizonte',9)],
-    'Campinas': [('Sao Paulo',1),('Curitiba',5),('Belo Horizonte',8),('Uberlandia',12)],
-    'Uberlandia': [('Belo Horizonte',5),('Goiania',7),('Brasilia',9),('Campinas',12),('Curitiba',18)],
-    'Goiania': [('Brasilia',2),('Uberlandia',7),('Florianopolis',20)],
-    'Brasilia': [('Goiania',2),('Uberlandia',9),('Salvador',20)],
-    'Salvador': [('Ilheus',4),('Belo Horizonte',16),('Brasilia',20)],
-    'Ilheus': [('Salvador',4),('Rio de Janeiro',6),('Belo Horizonte',10)],
-    'Belo Horizonte': [('Uberlandia',5),('Rio de Janeiro',7),('Campinas',8),('Sao Paulo',9),('Ilheus',10),('Salvador',16)],
-    'Rio de Janeiro': [('Sao Paulo',3),('Ilheus',6),('Belo Horizonte',7),('Joinville',15)],
-    'Joinville': [('Curitiba',2),('Sao Paulo',5),('Florianopolis',5),('Rio de Janeiro',15)],
-    'Curitiba': [('Joinville',2),('Florianopolis',4),('Sao Paulo',4),('Campinas',5),('Uberlandia',18)],
-    'Florianopolis': [('Curitiba',4),('Joinville',5),('Goiania',20)]
-} 
+    'Sao Paulo': [('Campinas', 1), ('Rio de Janeiro', 2), ('Curitiba', 3), ('Joinville', 4), ('Belo Horizonte', 5), ('Uberlandia', 6), ('Goiania', 7), ('Brasilia', 8), ('Salvador', 9), ('Ilheus', 10), ('Florianopolis', 11)],
+    'Campinas': [('Sao Paulo', 1), ('Rio de Janeiro', 2), ('Curitiba', 3), ('Joinville', 4), ('Belo Horizonte', 5), ('Uberlandia', 6), ('Goiania', 7), ('Brasilia', 8), ('Salvador', 9), ('Ilheus', 10), ('Florianopolis', 11)],
+    'Rio de Janeiro': [('Sao Paulo', 1), ('Campinas', 2), ('Curitiba', 3), ('Joinville', 4), ('Belo Horizonte', 5), ('Uberlandia', 6), ('Goiania', 7), ('Brasilia', 8), ('Salvador', 9), ('Ilheus', 10), ('Florianopolis', 11)],
+    'Curitiba': [('Sao Paulo', 1), ('Campinas', 2), ('Rio de Janeiro', 3), ('Joinville', 4), ('Belo Horizonte', 5), ('Uberlandia', 6), ('Goiania', 7), ('Brasilia', 8), ('Salvador', 9), ('Ilheus', 10), ('Florianopolis', 11)],
+    'Joinville': [('Sao Paulo', 1), ('Campinas', 2), ('Rio de Janeiro', 3), ('Curitiba', 4), ('Belo Horizonte', 5), ('Uberlandia', 6), ('Goiania', 7), ('Brasilia', 8), ('Salvador', 9), ('Ilheus', 10), ('Florianopolis', 11)],
+    'Belo Horizonte': [('Sao Paulo', 1), ('Campinas', 2), ('Rio de Janeiro', 3), ('Curitiba', 4), ('Joinville', 5), ('Uberlandia', 6), ('Goiania', 7), ('Brasilia', 8), ('Salvador', 9), ('Ilheus', 10), ('Florianopolis', 11)],
+    'Uberlandia': [('Sao Paulo', 1), ('Campinas', 2), ('Rio de Janeiro', 3), ('Curitiba', 4), ('Joinville', 5), ('Belo Horizonte', 6), ('Goiania', 7), ('Brasilia', 8), ('Salvador', 9), ('Ilheus', 10), ('Florianopolis', 11)],
+    'Goiania': [('Sao Paulo', 1), ('Campinas', 2), ('Rio de Janeiro', 3), ('Curitiba', 4), ('Joinville', 5), ('Belo Horizonte', 6), ('Uberlandia', 7), ('Brasilia', 8), ('Salvador', 9), ('Ilheus', 10), ('Florianopolis', 11)],
+    'Brasilia': [('Sao Paulo', 1), ('Campinas', 2), ('Rio de Janeiro', 3), ('Curitiba', 4), ('Joinville', 5), ('Belo Horizonte', 6), ('Uberlandia', 7), ('Goiania', 8), ('Salvador', 9), ('Ilheus', 10), ('Florianopolis', 11)],
+    'Salvador': [('Sao Paulo', 1), ('Campinas', 2), ('Rio de Janeiro', 3), ('Curitiba', 4), ('Joinville', 5), ('Belo Horizonte', 6), ('Uberlandia', 7), ('Goiania', 8), ('Brasilia', 9), ('Ilheus', 10), ('Florianopolis', 11)],
+    'Ilheus': [('Sao Paulo', 1), ('Campinas', 2), ('Rio de Janeiro', 3), ('Curitiba', 4), ('Joinville', 5), ('Belo Horizonte', 6), ('Uberlandia', 7), ('Goiania', 8), ('Brasilia', 9), ('Salvador', 10), ('Florianopolis', 11)],
+    'Florianopolis': [('Sao Paulo', 1), ('Campinas', 2), ('Rio de Janeiro', 3), ('Curitiba', 4), ('Joinville', 5), ('Belo Horizonte', 6), ('Uberlandia', 7), ('Goiania', 8), ('Brasilia', 9), ('Salvador', 10), ('Ilheus', 11)]
+}
+
 
 #PLOT GRAFOS
 
@@ -113,3 +114,4 @@ for city in List_of_nodes.keys():   # 'keys()' é utilizada para retirar as prim
 
 nx.draw(G, with_labels=True, node_color=nodeList)
 plt.show()
+
