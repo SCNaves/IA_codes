@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 def cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities):
     
     # Vetor para salvar as cidades visitadas ao longo do código
-    cities_visited = [0] * qtde_cities  # Cria um vetor de cidades visitadas
-    cities_visited[0] = str(initial_city)   # A cidade inicial é o primeiro index do vetor
+    cities_visited = []   # Cria um vetor de cidades visitadas
+    cities_visited.append(str(initial_city))   # A cidade inicial é o primeiro index do vetor
 
     # O vetor 'cost_city' é responsável por conter os nós adjacentes ao atual nó em estudo
     # É por ele que será decidido qual o nó seguinte de menor custo
@@ -40,17 +40,32 @@ def cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities):
            
         # Excluir as cidades já visitadas do vetor city_vec
         city_vec = [city for city in city_vec if city not in cities_visited]
-        
+
+        #Caso vetor de cidades possíveis esteja vazio, fazer backtracking a partir do laço abaixo, até encontrar uma cidade que tenho caminhos para percorrer.
+        cities_visited_aux = cities_visited.copy()  # Copiando o vetor de cidades visitadas para o vetor de cidades auxiliares a ser trabalhado dentro do 'while'
+        while city_vec == []:
+            cities_visited_aux.pop((-1))    # .pop = deletar, ou seja, estamos deletando o último valor deste vetor (-1) representa a última posição
+            actual_city = cities_visited_aux[-1]    # A cidade atual agora corresponde a cidade anterior da que deu problema de nós
+            # Refazendo os passos já implementados no código, que é extrair as cidades e custos vizinhas da cidade atual
+            city_vec = []  
+            cost_vec = []
+            for city, cost in List_of_nodes[actual_city]:
+                city_vec.append(city)
+                cost_vec.append(cost) 
+            city_vec = [city for city in city_vec if city not in cities_visited]    # Retorna apenas a cidade que ainda não tenha sido visitada
+            cost_vec = [cost for city, cost in zip(city_vec, cost_vec) if city not in cities_visited]   # Retorna o custo referente a cidade que não tenha sido visitada
+            if city_vec != []:  # Se o vetor for não nulo isto significa que agora temos uma cidade disponível para caminhar, portanto, podemos adicioná-la a cidades visitadas
+                cities_visited = cities_visited_aux.copy()  # Copiando o vetor auxiliar para cidades visitadas, tendo em vista que, agora o auxiliar possui uma cidade vizinha disponível a ser visitada
+            
+
         # Aqui é retirado o index associado ao menor custo contido no vetor 'cost_vec'. 
         # Dessa maneira, é possível referenciar o index a 'city_vec' e determinar a cidade associada ao index de menor custo
         lower_cost_idx = cost_vec.index(min(cost_vec))  # index de menor custo
         actual_city = city_vec[lower_cost_idx]  # Aloca a cidade associada ao index de menor custo ao vetor 'actual_city' esta sera agora a próxima cidade a ser analisada
 
         # Guarda a cidade de menor custo no vetor criado anteriormente (irá conter todas as cidades visitadas)
-        cities_visited[i] = actual_city
+        cities_visited.append(actual_city)
 
-        # Atualiza o valor da variável
-        i = i + 1
     return cities_visited
 
 # Criando um variavel da quantidade de cidades a serem utilizados no código
