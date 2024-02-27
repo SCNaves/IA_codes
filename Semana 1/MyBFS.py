@@ -49,8 +49,10 @@ def cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities):
             for city, cost in List_of_nodes[actual_city]:
                 city_vec.append(city)
                 cost_vec.append(cost) 
-            city_vec = [city for city in city_vec if city not in cities_visited]    # Retorna apenas a cidade que ainda não tenha sido visitada
-            cost_vec = [cost for city, cost in zip(city_vec, cost_vec) if city not in cities_visited]   # Retorna o custo referente a cidade que não tenha sido visitada
+            indices_to_keep = [index for index, city in enumerate(city_vec) if city not in cities_visited]
+            city_vec = [city_vec[index] for index in indices_to_keep]
+            cost_vec = [cost_vec[index] for index in indices_to_keep]
+            
             if city_vec != []:  # Se o vetor for não nulo isto significa que agora temos uma cidade disponível para caminhar, portanto, podemos adicioná-la a cidades visitadas
                 cities_visited = cities_visited_aux.copy()  # Copiando o vetor auxiliar para cidades visitadas, tendo em vista que, agora o auxiliar possui uma cidade vizinha disponível a ser visitada
             
@@ -125,3 +127,4 @@ for city in List_of_nodes.keys():   # 'keys()' é utilizada para retirar as prim
 
 nx.draw(G, with_labels=True, node_color=nodeList)
 plt.show()
+
