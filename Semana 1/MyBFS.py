@@ -25,11 +25,8 @@ def cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities):
         if actual_city == destiny_city:
             print("Chegamos a sua cidade destino: ", actual_city)
             print("As cidades visitadas pelo caminho foram: ")
-            # Como o vetor 'cities_visited' pode não conter todos os campos compostos por cidade, será retirado apenas os indíces
-            # que que possuem strings como forma
-            for i, city in enumerate(cities_visited):   #Comando enumerate retorna a posição e a palavra contida no vetor nesta posição. Ex: '0' 'Goiania'
-                if isinstance(city,str):    #Caso a palavra seja de formato string, printar na tela
-                    print(city)
+            for city in cities_visited:
+                print(city)
             break
         
         city_vec = []   # Vetor para guardar as possíveis cidades a serem visitadas
