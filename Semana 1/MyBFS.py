@@ -2,16 +2,11 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 # Função criada para percorrer as cidades e verificar o menor custo
-def cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities):
+def cost_function(initial_city, destiny_city, List_of_nodes):
     
     # Vetor para salvar as cidades visitadas ao longo do código
     cities_visited = []   # Cria um vetor de cidades visitadas
     cities_visited.append(str(initial_city))   # A cidade inicial é o primeiro index do vetor
-
-    # O vetor 'cost_city' é responsável por conter os nós adjacentes ao atual nó em estudo
-    # É por ele que será decidido qual o nó seguinte de menor custo
-    cost_city = []
-    cost_city.append((initial_city,0)) #Insere a cidade inicial com custo zero 
 
     # Vetor para conter a cidade atual (inicialmente é composto pela cidade inicial, porém ao longo do código
     # será composto pela cidade de menor custo). 
@@ -67,9 +62,6 @@ def cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities):
 
     return cities_visited
 
-# Criando um variavel da quantidade de cidades a serem utilizados no código
-qtde_cities = 12
-
 # Criando uma lista para conter todos os nós e seus respectivos vizinhos juntamente ao valor de custo
 """
 Exemplo: Lista_de_nos = {
@@ -115,7 +107,7 @@ initial_city = input()
 print("Digite a cidade de destino: ")
 destiny_city = input()
 
-cidades_visitadas = cost_function(initial_city, destiny_city, List_of_nodes, qtde_cities)
+cidades_visitadas = cost_function(initial_city, destiny_city, List_of_nodes)
 
 nodeList = []
 
