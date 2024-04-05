@@ -5,7 +5,6 @@ import seaborn as sns             #for Advanced visualizations
 from scipy.stats.mstats import winsorize
 from sklearn import preprocessing
 from sklearn.cluster import KMeans
-import os
 
 def tratamentoOutliers(air):
 # Retirando os OUTLIERS do banco de dados
